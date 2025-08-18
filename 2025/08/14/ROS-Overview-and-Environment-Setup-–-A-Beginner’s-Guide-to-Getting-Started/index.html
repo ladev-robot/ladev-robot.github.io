@@ -10,39 +10,39 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.24.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="ROS概述&emsp; ROS 具有多个版本，可以在 ubuntu、Mac 或 windows10 系统上安装，虽然一般用户平时使用的操作系统以windows居多,但是ROS的版本基本都不支持windows。所以绝大多数应用场景都是在Ubuntu，但想要在windows上运行ROS也是可以办到的。下面介绍三个在Ubuntu安装常用方式:  直接安装或双系统安装Ubuntu 虚拟机安装Ubuntu">
+    <meta name="description" content="ROS 概述与环境搭建：新手快速上手指南">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ROS Overview and Environment Setup – A Beginner’s Guide to Getting Started">
 <meta property="og:url" content="http://example.com/2025/08/14/ROS-Overview-and-Environment-Setup-%E2%80%93-A-Beginner%E2%80%99s-Guide-to-Getting-Started/index.html">
 <meta property="og:site_name" content="ladev-robot">
-<meta property="og:description" content="ROS概述&emsp; ROS 具有多个版本，可以在 ubuntu、Mac 或 windows10 系统上安装，虽然一般用户平时使用的操作系统以windows居多,但是ROS的版本基本都不支持windows。所以绝大多数应用场景都是在Ubuntu，但想要在windows上运行ROS也是可以办到的。下面介绍三个在Ubuntu安装常用方式:  直接安装或双系统安装Ubuntu 虚拟机安装Ubuntu">
+<meta property="og:description" content="ROS 概述与环境搭建：新手快速上手指南">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/image.png">
-<meta property="og:image" content="http://example.com/image-1.png">
-<meta property="og:image" content="http://example.com/image-2.png">
-<meta property="og:image" content="http://example.com/image-3.png">
-<meta property="og:image" content="http://example.com/image-5.png">
-<meta property="og:image" content="http://example.com/image-4.png">
-<meta property="og:image" content="http://example.com/image-6.png">
-<meta property="og:image" content="http://example.com/image-7.png">
-<meta property="og:image" content="http://example.com/image-8.png">
-<meta property="og:image" content="http://example.com/image-9.png">
-<meta property="og:image" content="http://example.com/image-10.png">
+<meta property="og:image" content="http://example.com/images/image.png">
+<meta property="og:image" content="http://example.com/images/image-1.png">
+<meta property="og:image" content="http://example.com/images/image-2.png">
+<meta property="og:image" content="http://example.com/images/image-3.png">
+<meta property="og:image" content="http://example.com/images/image-5.png">
+<meta property="og:image" content="http://example.com/images/image-4.png">
+<meta property="og:image" content="http://example.com/images/image-6.png">
+<meta property="og:image" content="http://example.com/images/image-7.png">
+<meta property="og:image" content="http://example.com/images/image-8.png">
+<meta property="og:image" content="http://example.com/images/image-9.png">
+<meta property="og:image" content="http://example.com/images/image-10.png">
 <meta property="article:published_time" content="2025-08-14T06:50:50.000Z">
-<meta property="article:modified_time" content="2025-08-18T01:49:25.385Z">
+<meta property="article:modified_time" content="2025-08-18T07:37:45.645Z">
 <meta property="article:author" content="Leo">
 <meta property="article:tag" content="虚拟机">
 <meta property="article:tag" content="ROS">
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/image.png">
+<meta name="twitter:image" content="http://example.com/images/image.png">
 
 
 <link rel="canonical" href="http://example.com/2025/08/14/ROS-Overview-and-Environment-Setup-%E2%80%93-A-Beginner%E2%80%99s-Guide-to-Getting-Started/">
@@ -73,8 +73,15 @@
 
 
   
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
 
 
 
@@ -141,7 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">ROS概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-VMWare%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 VMWare安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 创建虚拟机</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">ROS概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VMWare%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">VMWare安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.2.</span> <span class="nav-text">创建虚拟机</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -236,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-18 09:49:25" itemprop="dateModified" datetime="2025-08-18T09:49:25+08:00">2025-08-18</time>
+      <time title="Modified: 2025-08-18 15:37:45" itemprop="dateModified" datetime="2025-08-18T15:37:45+08:00">2025-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,6 +264,28 @@
     </span>
 
   
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
 </div>
 
         </div>
@@ -269,7 +298,11 @@
 <ul>
 <li>直接安装或双系统安装Ubuntu</li>
 <li>虚拟机安装Ubuntu</li>
-<li>Windows使用WSL安装Ubuntu<br>三种方式比较，各有优缺点：</li>
+<li>Windows使用WSL安装Ubuntu</li>
+</ul>
+<!-- more -->
+<p>三种方式比较，各有优缺点：</p>
+<ul>
 <li>方法一可以保证性能，且不需要考虑硬件兼容性问题，但是和windows系统交互不便；</li>
 <li>方法二可以方便的实现 windows 与 ubuntu 交互，不过性能稍差，且与硬件交互不便。</li>
 <li>方法三可以方便的实现 windows 与 ubuntu 交互，且支持硬件交互，但会出现意想不到的Bug。</li>
@@ -284,42 +317,46 @@
 <li>测试 ROS 环境是否可以正常运行。</li>
 </ol>
 <p>&emsp;以下是Ubuntu和ROS对应的版本和安装命令，不同的Ubuntu版本对应这不同的ROS版本，一定要对应版本！！！</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">Ubuntu</th>
-<th align="center">ROS1</th>
-<th align="center">命令</th>
+<th style="text-align:center">Ubuntu</th>
+<th style="text-align:center">ROS1</th>
+<th style="text-align:center">命令</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><strong>14.04 LTS</strong></td>
-<td align="center"><strong>Indigo lgloo</strong></td>
-<td align="center"><strong>sudo apt install ros-indigo-desktop-full</strong></td>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>14.04 LTS</strong></td>
+<td style="text-align:center"><strong>Indigo lgloo</strong></td>
+<td style="text-align:center"><strong>sudo apt install ros-indigo-desktop-full</strong></td>
 </tr>
 <tr>
-<td align="center"><strong>16.04 LTS</strong></td>
-<td align="center"><strong>Kinetic Kame</strong></td>
-<td align="center"><strong>sudo apt install ros-kinetic-desktop-full</strong></td>
+<td style="text-align:center"><strong>16.04 LTS</strong></td>
+<td style="text-align:center"><strong>Kinetic Kame</strong></td>
+<td style="text-align:center"><strong>sudo apt install ros-kinetic-desktop-full</strong></td>
 </tr>
 <tr>
-<td align="center"><strong>18.04 LTS</strong></td>
-<td align="center"><strong>Melodic Morenia</strong></td>
-<td align="center"><strong>sudo apt install ros-melodic-desktop-full</strong></td>
+<td style="text-align:center"><strong>18.04 LTS</strong></td>
+<td style="text-align:center"><strong>Melodic Morenia</strong></td>
+<td style="text-align:center"><strong>sudo apt install ros-melodic-desktop-full</strong></td>
 </tr>
 <tr>
-<td align="center"><strong>20.04 LTS</strong></td>
-<td align="center"><strong>Noetic Ninjemys</strong></td>
-<td align="center"><strong>sudo apt install ros-noetic-desktop-full</strong></td>
+<td style="text-align:center"><strong>20.04 LTS</strong></td>
+<td style="text-align:center"><strong>Noetic Ninjemys</strong></td>
+<td style="text-align:center"><strong>sudo apt install ros-noetic-desktop-full</strong></td>
 </tr>
-</tbody></table>
-<h2 id="1-1-VMWare安装"><a href="#1-1-VMWare安装" class="headerlink" title="1.1 VMWare安装"></a>1.1 VMWare安装</h2><p>VMware在2024年推出了两款免费的版本版本 Workstation Pro 17.5.2 和 Fusion Pro 13.5.2，本文以安装Workstation Pro 17.5.2为例。</p>
+</tbody>
+</table>
+</div>
+<h2 id="VMWare安装"><a href="#VMWare安装" class="headerlink" title="VMWare安装"></a>VMWare安装</h2><p>VMware在2024年推出了两款免费的版本版本 Workstation Pro 17.5.2 和 Fusion Pro 13.5.2，本文以安装Workstation Pro 17.5.2为例。</p>
 <blockquote>
 <p>PS：由于VMware官网是国外网站，全程最好开启梯子。</p>
 </blockquote>
 <p>一. 进入官网</p>
 <p><a target="_blank" rel="noopener" href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion">VMWARE官网</a></p>
-<p>二. 注册账号<br><img src="/image.png" alt="alt text"></p>
+<p>二. 注册账号<br><img src="/images/image.png" alt="alt text"></p>
 <p>三. 注册成功后回到下载界面再次点击下载</p>
 <ol>
 <li><p>在左侧导航栏选中My Dashboard</p>
@@ -329,21 +366,21 @@
 <li><p>点击Search</p>
 </li>
 </ol>
-<p><img src="/image-1.png" alt="alt text"></p>
-<p>四. 点击<strong>Downloading VMware Workstation Pro</strong>，下拉页面选择<strong>Download VMware Workstation Pro (Free)</strong><br><img src="/image-2.png" alt="alt text"></p>
-<p>五. 下载对应的版本<br><img src="/image-3.png" alt="alt text"></p>
-<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2 创建虚拟机"></a>1.2 创建虚拟机</h2><p>一. 下载Ubuntu镜像，这里给出中科大的镜像源，大家自行选择下载，根据本人经验，大部分开源项目支持Ubuntu20.04版本，之后的内容也是以Ubuntu20.04为例。<a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/ubuntu-releases/">Ubuntu镜像源</a></p>
-<p><img src="/image-5.png" alt="alt text"></p>
-<p>二. 新建虚拟机，自定义虚拟机配置<br><img src="/image-4.png" alt="alt text"></p>
-<p>三. Vmware会自动识别电脑中下载的镜像文件，一直点下一步。<br><img src="/image-6.png" alt="alt text"></p>
-<p>四. 设置好存储位置和用户信息后，对虚拟机的CPU和内存进行分配，分配给虚拟机CPU的处理器内核总数 &lt; CPU的逻辑处理器(线程数)，建议为CPU的$\frac{1}{2} \text{ - } \frac{2}{3}$之间。内存建议$\frac{1}{2}$左右。<br><img src="/image-7.png" alt="alt text"><br><img src="/image-8.png" alt="alt text"></p>
+<p><img src="/images/image-1.png" alt="alt text"></p>
+<p>四. 点击<strong>Downloading VMware Workstation Pro</strong>，下拉页面选择<strong>Download VMware Workstation Pro (Free)</strong><br><img src="/images/image-2.png" alt="alt text"></p>
+<p>五. 下载对应的版本<br><img src="/images/image-3.png" alt="alt text"></p>
+<h2 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h2><p>一. 下载Ubuntu镜像，这里给出中科大的镜像源，大家自行选择下载，根据本人经验，大部分开源项目支持Ubuntu20.04版本，之后的内容也是以Ubuntu20.04为例。<a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/ubuntu-releases/">Ubuntu镜像源</a></p>
+<p><img src="/images/image-5.png" alt="alt text"></p>
+<p>二. 新建虚拟机，自定义虚拟机配置<br><img src="/images/image-4.png" alt="alt text"></p>
+<p>三. Vmware会自动识别电脑中下载的镜像文件，一直点下一步。<br><img src="/images/image-6.png" alt="alt text"></p>
+<p>四. 设置好存储位置和用户信息后，对虚拟机的CPU和内存进行分配，分配给虚拟机CPU的处理器内核总数 &lt; CPU的逻辑处理器(线程数)，建议为CPU的 $\frac{1}{2} \text{ - } \frac{2}{3}$ 之间。内存建议$\frac{1}{2}$左右。<br><img src="/images/image-7.png" alt="alt text"><br><img src="/images/image-8.png" alt="alt text"></p>
 <p>五. 网络模式和磁盘空间根据个人需求和电脑配置自行决定。推荐使用桥接模式。</p>
 <ul>
 <li>桥接模式：能够连接外网，使用单独的ip地址，网段需要与桥接连接的外部网络的网段相同。</li>
 <li>NAT模式：使用物理机的网络。</li>
 </ul>
-<p>六. 点击完成即可，相关配置后续也可修改。<br><img src="/image-9.png" alt="alt text"></p>
-<p>七. 上述步骤完成后，等待一段时间。即可进入Ubuntu系统<br><img src="/image-10.png" alt="alt text"></p>
+<p>六. 点击完成即可，相关配置后续也可修改。<br><img src="/images/image-9.png" alt="alt text"></p>
+<p>七. 上述步骤完成后，等待一段时间。即可进入Ubuntu系统<br><img src="/images/image-10.png" alt="alt text"></p>
 
     </div>
 
@@ -353,9 +390,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag"># 虚拟机</a>
-              <a href="/tags/ROS/" rel="tag"># ROS</a>
-              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 虚拟机</a>
+              <a href="/tags/ROS/" rel="tag"><i class="fa fa-tag"></i> ROS</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
           </div>
 
         
@@ -392,6 +429,40 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Leo</span>
   </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">NaNm</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">NaN:aN</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
