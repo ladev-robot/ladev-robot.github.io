@@ -15,17 +15,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.24.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.24.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"github-dark","dark":"github-dark"},"prism":{"light":"prism-okaidia","dark":"prism-okaidia"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="本文介绍如何在 Ubuntu 环境下通过终端与 VS Code 快速搭建 ROS 工作空间并完成 C++ 节点的编译与运行。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS Workspace Build &amp; Compilation Setup">
+<meta property="og:title" content="ROS Workspace Build &amp; Compilation Setup -- C++">
 <meta property="og:url" content="http://example.com/2025/08/20/ROS-Workspace-Build-Compilation-Setup/index.html">
 <meta property="og:site_name" content="ladev-robot">
 <meta property="og:description" content="本文介绍如何在 Ubuntu 环境下通过终端与 VS Code 快速搭建 ROS 工作空间并完成 C++ 节点的编译与运行。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-20T09:31:31.000Z">
-<meta property="article:modified_time" content="2025-08-21T02:13:30.990Z">
+<meta property="article:modified_time" content="2025-08-21T06:14:50.873Z">
 <meta property="article:author" content="Leo">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="ROS">
@@ -35,10 +35,10 @@
 <link rel="canonical" href="http://example.com/2025/08/20/ROS-Workspace-Build-Compilation-Setup/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/08/20/ROS-Workspace-Build-Compilation-Setup/","path":"2025/08/20/ROS-Workspace-Build-Compilation-Setup/","title":"ROS Workspace Build & Compilation Setup"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/08/20/ROS-Workspace-Build-Compilation-Setup/","path":"2025/08/20/ROS-Workspace-Build-Compilation-Setup/","title":"ROS Workspace Build & Compilation Setup -- C++"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>ROS Workspace Build & Compilation Setup | ladev-robot</title>
+<title>ROS Workspace Build & Compilation Setup -- C++ | ladev-robot</title>
   
 
 
@@ -110,7 +110,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-resume"><a href="/resume/" rel="section"><i class="user fa-fw"></i>Resume</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories<span class="badge">9</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags<span class="badge">4</span></a></li><li class="menu-item menu-item-timelines"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Timelines</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-resume"><a href="/resume/" rel="section"><i class="user fa-fw"></i>Resume</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories<span class="badge">6</span></a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags<span class="badge">4</span></a></li><li class="menu-item menu-item-timelines"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Timelines</a></li>
   </ul>
 </nav>
 
@@ -135,7 +135,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%BB%88%E7%AB%AF%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">一、终端编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="nav-number">1.1.</span> <span class="nav-text">1. 创建工作空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%8A%9F%E8%83%BD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建功能包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BC%96%E8%BE%91%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 编辑源文件</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-%E2%80%9Cros-ros-h%E2%80%9D"><span class="nav-number"></span> <span class="nav-text">include “ros&#x2F;ros.h”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-%E2%80%9Cros-ros-h%E2%80%9D-1"><span class="nav-number"></span> <span class="nav-text">include “ros&#x2F;ros.h”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C"><span class="nav-number">0.1.</span> <span class="nav-text">7. 编译执行</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%BB%88%E7%AB%AF%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">一、终端编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="nav-number">1.1.</span> <span class="nav-text">1. 创建工作空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%8A%9F%E8%83%BD%E5%8C%85"><span class="nav-number">1.2.</span> <span class="nav-text">2. 创建功能包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BC%96%E8%BE%91%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">3. 编辑源文件</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-%E2%80%9Cros-ros-h%E2%80%9D"><span class="nav-number"></span> <span class="nav-text">include “ros&#x2F;ros.h”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C"><span class="nav-number">0.1.</span> <span class="nav-text">7. 编译执行</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -150,13 +150,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -215,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="ROS Workspace Build &amp; Compilation Setup | ladev-robot">
+      <meta itemprop="name" content="ROS Workspace Build &amp; Compilation Setup -- C++ | ladev-robot">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ROS Workspace Build & Compilation Setup<a href="https://github.com/ladev-robot/ladev-robot.github.io/tree/master_posts/ROS-Workspace-Build-Compilation-Setup.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          ROS Workspace Build & Compilation Setup -- C++<a href="https://github.com/ladev-robot/ladev-robot.github.io/tree/master_posts/ROS-Workspace-Build-Compilation-Setup.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-21 10:13:30" itemprop="dateModified" datetime="2025-08-21T10:13:30+08:00">2025-08-21</time>
+      <time title="Modified: 2025-08-21 14:14:50" itemprop="dateModified" datetime="2025-08-21T14:14:50+08:00">2025-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -246,11 +246,19 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+          <a href="/categories/System-Tools/" itemprop="url" rel="index"><span itemprop="name">System & Tools</span></a>
         </span>
           , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Ubuntu/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+          <a href="/categories/Robotics/" itemprop="url" rel="index"><span itemprop="name">Robotics</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/System-Tools/Development-Tools/" itemprop="url" rel="index"><span itemprop="name">Development Tools</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Robotics/Simulation-Virtualization/" itemprop="url" rel="index"><span itemprop="name">Simulation & Virtualization</span></a>
         </span>
     </span>
 
@@ -268,7 +276,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>746</span>
+      <span>747</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -285,7 +293,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>本文分别介绍终端和使用VScode实现ROS编译C++。</p>
+    <div class="post-body" itemprop="articleBody"><p>&emsp;本文分别介绍终端和使用VScode实现ROS编译C++。</p>
 <h3 id="一、终端编译"><a href="#一、终端编译" class="headerlink" title="一、终端编译"></a>一、终端编译</h3><p>实现流程大致如下：</p>
 <ul>
 <li>创建工作空间；</li>
@@ -296,21 +304,20 @@
 </ul>
 <h4 id="1-创建工作空间"><a href="#1-创建工作空间" class="headerlink" title="1. 创建工作空间"></a>1. 创建工作空间</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 自定义空间可以理解为ROS项目的根目录 --&gt;</span><br><span class="line">mkdir -p 自定义空间名称/src</span><br><span class="line">cd 自定义空间名称</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
 <h4 id="2-创建功能包"><a href="#2-创建功能包" class="headerlink" title="2. 创建功能包"></a>2. 创建功能包</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 创建功能包并添加依赖--&gt;</span><br><span class="line">cd src</span><br><span class="line">catkin_create_pkg 自定义ROS包名 roscpp rospy std_msgs</span><br></pre></td></tr></table></figure>
-<h4 id="3-编辑源文件"><a href="#3-编辑源文件" class="headerlink" title="3. 编辑源文件"></a>3. 编辑源文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd 自定义的包/src</span><br><span class="line">~~~  </span><br><span class="line">    </span><br><span class="line">创建C++文件，例如 `hello.cpp`</span><br></pre></td></tr></table></figure>
-<h1 id="include-“ros-ros-h”"><a href="#include-“ros-ros-h”" class="headerlink" title="include “ros/ros.h”"></a>include “ros/ros.h”</h1><p>int main(int argc, char *argv[])<br>{<br>    //执行 ros 节点初始化<br>    ros::init(argc,argv,”hello”);<br>    //创建 ros 节点句柄(非必须)<br>    ros::NodeHandle n;<br>    //控制台输出 hello world<br>    ROS_INFO(“hello world!”);</p>
-<pre><code>return 0;
-</code></pre><p>}<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4. 编辑ros包下的Cmakelist.txt文件，注意不是工作空间的Cmakelist.txt文件</span><br></pre></td></tr></table></figure><br>add_executable(步骤3的源文件名<br>  src/步骤3的源文件名.cpp<br>)<br>target_link_libraries(步骤3的源文件名<br>  ${catkin_LIBRARIES}<br>)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5. 编译并执行</span><br></pre></td></tr></table></figure><br>cd 自定义空间名称<br>catkin_make<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">编译完成会生成 `build`和`devel`文件夹。</span><br><span class="line"></span><br><span class="line">运行步骤：  </span><br><span class="line"></span><br><span class="line">&amp;emsp;启动终端1：</span><br></pre></td></tr></table></figure><br>roscore<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;启动终端2：</span><br></pre></td></tr></table></figure><br>cd 工作空间<br>source ./devel/setup.bash //在当前终端配置项目路径<br>rosrun 包名 C++节点<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果希望每次终端自动加载环境变量，可以执行：</span><br></pre></td></tr></table></figure><br>echo “source ~/工作空间/devel/setup.bash” &gt;&gt; ~/.bashrc<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 二、VSCode编译</span><br><span class="line"></span><br><span class="line">#### 1. 创建工作空间</span><br></pre></td></tr></table></figure><br><!-- 自定义空间可以理解为ROS项目的根目录 --><br>mkdir -p 自定义空间名称/src<br>cd 自定义空间名称<br>catkin_make<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2. 启动 vscode</span><br></pre></td></tr></table></figure><br>cd xxx_ws<br>code .<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3. 编译 ros</span><br><span class="line"></span><br><span class="line">快捷键 ctrl + shift + B 调用编译，选择:catkin_make:build。可以点击配置设置为默认，修改.vscode/tasks.json 文件</span><br></pre></td></tr></table></figure><br>{<br>// 有关 tasks.json 格式的文档，请参见<br>    // <a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?LinkId=733558">https://go.microsoft.com/fwlink/?LinkId=733558</a><br>    “version”: “2.0.0”,<br>    “tasks”: [<br>        {<br>            “label”: “catkin_make:debug”, //代表提示的描述性信息<br>            “type”: “shell”,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行<br>            “command”: “catkin_make”,//这个是我们需要运行的命令<br>            “args”: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”<br>            “group”: {“kind”:”build”,”isDefault”:true},<br>            “presentation”: {<br>                “reveal”: “always”//可选always或者silence，代表是否输出信息<br>            },<br>            “problemMatcher”: “$msCompile”<br>        }<br>    ]<br>}<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4. 创建 ROS 功能包</span><br><span class="line"></span><br><span class="line">在 VS Code 中，右键 `src` 文件夹 → **Create Catkin Package**，输入包名并添加依赖：`roscpp rospy std_msgs`。</span><br><span class="line"></span><br><span class="line">#### 5. C++ 实现</span><br><span class="line"></span><br><span class="line">在功能包的 `src` 下创建 `hello_vscode.cpp`：</span><br></pre></td></tr></table></figure><br>/*<br>    控制台输出 HelloVSCode !!!</p>
+<h4 id="3-编辑源文件"><a href="#3-编辑源文件" class="headerlink" title="3. 编辑源文件"></a>3. 编辑源文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cd 自定义的包/src</span><br><span class="line">~~~  </span><br><span class="line">    </span><br><span class="line">创建C++文件，例如 `hello.cpp`</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    //执行 ros 节点初始化</span><br><span class="line">    ros::init(argc,argv,&quot;hello&quot;);</span><br><span class="line">    //创建 ros 节点句柄(非必须)</span><br><span class="line">    ros::NodeHandle n;</span><br><span class="line">    //控制台输出 hello world</span><br><span class="line">    ROS_INFO(&quot;hello world!&quot;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">#### 4. 编辑ros包下的Cmakelist.txt文件，注意不是工作空间的Cmakelist.txt文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>add_executable(步骤3的源文件名<br>  src/步骤3的源文件名.cpp<br>)<br>target_link_libraries(步骤3的源文件名<br>  ${catkin_LIBRARIES}<br>)<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5. 编译并执行</span><br></pre></td></tr></table></figure><br>cd 自定义空间名称<br>catkin_make<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">编译完成会生成 `build`和`devel`文件夹。</span><br><span class="line"></span><br><span class="line">运行步骤：  </span><br><span class="line"></span><br><span class="line">&amp;emsp;启动终端1：</span><br></pre></td></tr></table></figure><br>roscore<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;启动终端2：</span><br></pre></td></tr></table></figure><br>cd 工作空间<br>source ./devel/setup.bash //在当前终端配置项目路径<br>rosrun 包名 C++节点<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果希望每次终端自动加载环境变量，可以执行：</span><br></pre></td></tr></table></figure><br>echo “source ~/工作空间/devel/setup.bash” &gt;&gt; ~/.bashrc<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 二、VSCode编译</span><br><span class="line"></span><br><span class="line">#### 1. 创建工作空间</span><br></pre></td></tr></table></figure><br><!-- 自定义空间可以理解为ROS项目的根目录 --><br>mkdir -p 自定义空间名称/src<br>cd 自定义空间名称<br>catkin_make<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 2. 启动 vscode</span><br></pre></td></tr></table></figure><br>cd xxx_ws<br>code .<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3. 编译 ros</span><br><span class="line"></span><br><span class="line">快捷键 ctrl + shift + B 调用编译，选择:catkin_make:build。可以点击配置设置为默认，修改.vscode/tasks.json 文件</span><br></pre></td></tr></table></figure><br>{<br>// 有关 tasks.json 格式的文档，请参见<br>    // <a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/?LinkId=733558">https://go.microsoft.com/fwlink/?LinkId=733558</a><br>    “version”: “2.0.0”,<br>    “tasks”: [<br>        {<br>            “label”: “catkin_make:debug”, //代表提示的描述性信息<br>            “type”: “shell”,  //可以选择shell或者process,如果是shell代码是在shell里面运行一个命令，如果是process代表作为一个进程来运行<br>            “command”: “catkin_make”,//这个是我们需要运行的命令<br>            “args”: [],//如果需要在命令后面加一些后缀，可以写在这里，比如-DCATKIN_WHITELIST_PACKAGES=“pac1;pac2”<br>            “group”: {“kind”:”build”,”isDefault”:true},<br>            “presentation”: {<br>                “reveal”: “always”//可选always或者silence，代表是否输出信息<br>            },<br>            “problemMatcher”: “$msCompile”<br>        }<br>    ]<br>}<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4. 创建 ROS 功能包</span><br><span class="line"></span><br><span class="line">在 VS Code 中，右键 `src` 文件夹 → **Create Catkin Package**，输入包名并添加依赖：`roscpp rospy std_msgs`。</span><br><span class="line"></span><br><span class="line">#### 5. C++ 实现</span><br><span class="line"></span><br><span class="line">在功能包的 `src` 下创建 `hello_vscode.cpp`：</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>/*<br>    控制台输出 HelloVSCode !!!</p>
 <p>*/</p>
-<h1 id="include-“ros-ros-h”-1"><a href="#include-“ros-ros-h”-1" class="headerlink" title="include “ros/ros.h”"></a>include “ros/ros.h”</h1><p>int main(int argc, char *argv[])<br>{<br>    setlocale(LC_ALL,””);<br>    //执行节点初始化<br>    ros::init(argc,argv,”HelloVSCode”);</p>
+<h1 id="include-“ros-ros-h”"><a href="#include-“ros-ros-h”" class="headerlink" title="include “ros/ros.h”"></a>include “ros/ros.h”</h1><p>int main(int argc, char *argv[])<br>{<br>    setlocale(LC_ALL,””);<br>    //执行节点初始化<br>    ros::init(argc,argv,”HelloVSCode”);</p>
 <pre><code>//输出日志
 ROS_INFO(&quot;Hello VSCode!!!&quot;);
 return 0;
-</code></pre><p>}<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; ⚠️若没有代码提示，在.vscode/c_cpp_properties.json中设置 </span><br></pre></td></tr></table></figure><br>“cppStandard”: “c++17”<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; ⚠️当ROS__INFO 终端输出中文出现乱码，在函数开头添加代码</span><br></pre></td></tr></table></figure><br>setlocale(LC_CTYPE, “zh_CN.utf8”);<br>setlocale(LC_ALL, “”);<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 6. 配置 CMakeLists.txt</span><br></pre></td></tr></table></figure><br>add_executable(节点名称<br>  src/C++源文件名.cpp<br>)<br>target_link_libraries(节点名称<br>  ${catkin_LIBRARIES}<br>)<br>~~~</p>
+</code></pre><p>}<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; ⚠️若没有代码提示，在.vscode/c_cpp_properties.json中设置 </span><br><span class="line"></span><br></pre></td></tr></table></figure><br>“cppStandard”: “c++17”<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; ⚠️当ROS__INFO 终端输出中文出现乱码，在函数开头添加代码</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>setlocale(LC_CTYPE, “zh_CN.utf8”);<br>setlocale(LC_ALL, “”);<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 6. 配置 CMakeLists.txt</span><br></pre></td></tr></table></figure><br>add_executable(节点名称<br>  src/C++源文件名.cpp<br>)<br>target_link_libraries(节点名称<br>  ${catkin_LIBRARIES}<br>)<br>~~~</p>
 <h4 id="7-编译执行"><a href="#7-编译执行" class="headerlink" title="7. 编译执行"></a>7. 编译执行</h4><ul>
 <li><p>编译:<br><code>ctrl + shift + B</code></p>
 </li>
 <li><p>运行： 在 VS Code 的终端执行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source ./devel/setup.bash</span><br><span class="line">rosrun &lt;package_name&gt; hello_vscode</span><br></pre></td></tr></table></figure></li>
+</li>
+<li><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source ./devel/setup.bash</span><br><span class="line">rosrun &lt;package_name&gt; hello_vscode</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -334,6 +341,9 @@ return 0;
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2025/08/21/ROS-Workspace-Build-Compilation-Setup-Python/" rel="next" title="ROS Workspace Build &amp; Compilation Setup -- Python">
+                  ROS Workspace Build & Compilation Setup -- Python <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
