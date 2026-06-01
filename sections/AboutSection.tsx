@@ -9,9 +9,10 @@ import { useSection } from "context/section";
 import useOnScreen from "hooks/useOnScreen";
 import useScrollActive from "hooks/useScrollActive";
 
-import satNaing from "../public/satnaing.webp";
+import { siteConfig } from "@/constants/site";
+
+import profileImage from "../public/profile-line-art.png";
 import AboutBgSvg from "@/components/AboutBgSvg";
-import EduGroup from "@/components/EduGroup";
 
 const AboutSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -44,20 +45,20 @@ const AboutSection: React.FC = () => {
       opacity: 0,
     };
 
-    const toAnimation = (triggerTarget: string) => ({
-      y: 0,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: q(`.${triggerTarget}`),
-        start: "top bottom",
-      },
-    });
-
-    // about-intro
-    gsap.fromTo(q(".about-intro"), fromAnimation, toAnimation("about-intro"));
-
-    // edu-bg
-    gsap.fromTo(q(".edu-bg"), fromAnimation, toAnimation("edu-bg"));
+    // about & publications entrance
+    gsap.fromTo(
+      [q(".about-intro"), q(".about-publications")],
+      fromAnimation,
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: q(".about-intro"),
+          start: "top bottom",
+        },
+      }
+    );
 
     // bg svg parallax effect
     gsap.fromTo(
@@ -90,8 +91,6 @@ const AboutSection: React.FC = () => {
 
   const { theme } = useTheme();
 
-  const eduRef = useRef<HTMLDivElement>(null);
-
   // Set active link for about section
   const aboutSection = useScrollActive(sectionRef);
   const { onSectionChange } = useSection();
@@ -104,7 +103,7 @@ const AboutSection: React.FC = () => {
       ref={sectionRef}
       className="about-panel bg-white dark:bg-[#1B2731] relative"
     >
-      <section id="whoami" className="section">
+      <section id="whoami" className="section lg:min-h-0 lg:pb-12">
         <RoughNotationGroup>
           <div className="text-center">
             <RoughNotation
@@ -119,8 +118,8 @@ const AboutSection: React.FC = () => {
               <h2 className="section-heading">Who am I?</h2>
             </RoughNotation>
           </div>
-          <div className="md:grid grid-rows-5 lg:grid-rows-6 grid-cols-5">
-            <div className="col-start-1 col-end-3 row-start-1 row-end-4 lg:row-end-7 lg:col-start-1 lg:col-end-3 flex justify-center items-center py-4 lg:mb-[20%]">
+          <div className="md:grid grid-cols-5 gap-8">
+            <div className="col-span-5 lg:col-span-2 flex justify-center items-center py-4">
               <div className="relative w-72">
                 <svg
                   width="96"
@@ -133,14 +132,14 @@ const AboutSection: React.FC = () => {
                   <path d="M79.2202 0.959991L62.7802 17.32L46.3301 0.959991L29.8902 17.32L13.4501 0.959991L0.410156 13.94L0.400146 17.58L13.4501 4.58999L29.8902 20.95L46.3301 4.58999L62.7802 20.95L79.2202 4.58999L93.7302 19.02L95.5402 17.19L79.2202 0.959991Z" />
                 </svg>
 
-                <div className="profile-picture overflow-hidden md:overflow-visible rounded-md md:shadow-2xl">
+                <div className="profile-picture overflow-hidden rounded-2xl shadow-xl bg-cardlight dark:bg-carddark">
                   <Image
-                    src={satNaing}
+                    src={profileImage}
                     width={1700}
                     height={1790}
                     priority
-                    alt="Sat Naing profile picture"
-                    className="rounded-md"
+                    alt={`${siteConfig.name} profile picture`}
+                    className="rounded-2xl object-cover"
                   />
                 </div>
 
@@ -168,22 +167,49 @@ const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            <p className="col-start-1 col-end-3 row-start-4 row-end-6 lg:row-start-1 lg:row-end-2 lg:col-start-3 lg:col-end-6 lg:ml-8 lg:mt-auto about-intro">
-              With 4+ years of comprehensive experience in web application
-              development, I have polished my skills in both frontend and
-              backend development. In addition to my hands-on experience in web
-              development, my education has also played a critical role in
-              providing a strong foundation for my career.
-            </p>
+            <div className="col-span-5 lg:col-span-3 space-y-4">
+              <div className="about-intro">
+                <h3 className="font-semibold text-lg">About</h3>
+                <p className="text-slate-600 dark:text-slate-200 italic mt-1">
+                  Navigation Algorithm Engineer
+                </p>
+                <ul className="marker:text-marrsgreen dark:marker:text-carrigreen list-disc pl-6 space-y-1 mt-2">
+                  <li>UAV navigation algorithms</li>
+                  <li>Code optimization &amp; algorithm improvements</li>
+                  <li>Hardware debugging &amp; integration</li>
+                </ul>
+              </div>
 
-            <div
-              className="col-start-3 col-end-6 row-start-1 row-end-6 lg:row-start-2 lg:row-end-7 md:ml-8 place-content-end"
-              ref={eduRef}
-            >
-              <p className="edu-bg my-4">Here is my educational background.</p>
-              {educationInfo.map((edu) => (
-                <EduGroup edu={edu} key={edu.id} />
-              ))}
+              <div className="about-publications relative z-10">
+                <h3 className="font-semibold text-lg">Publications</h3>
+                <ul className="space-y-2 mt-2">
+                  <li>
+                    <a
+                      href="https://ieeexplore.ieee.org/document/10412762"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="link"
+                    >
+                      BigFive: A Chinese Textual Dataset Supporting Psychology
+                      Knowledge Graph Construction
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.sciencedirect.com/science/article/abs/pii/S0957417425012394"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="link"
+                    >
+                      A novel federal learning-based framework defending
+                      server-level privacy leakage
+                    </a>
+                  </li>
+                </ul>
+                <p className="mt-2">
+                  Preparing a submission to IEEE Transactions on Robotics (TRO).
+                </p>
+              </div>
             </div>
           </div>
         </RoughNotationGroup>
@@ -193,33 +219,5 @@ const AboutSection: React.FC = () => {
     </div>
   );
 };
-
-const educationInfo = [
-  {
-    id: 1,
-    title: "B.Sc (Hons) in Computing",
-    subTitle: "Edinburgh Napier University | 2018 ~ 2019",
-    list: [
-      "Studied computer science, software development, DevOps",
-      "Graduated with First Class Honours",
-      "Got merit in 7 modules out of 9",
-    ],
-  },
-  {
-    id: 2,
-    title: "HND in Computing & System Development",
-    subTitle: "Info Myanmar University | 2016 - 2018",
-    list: [
-      "Studied modules specializing in software development",
-      "Passed HND with overall Merit",
-    ],
-  },
-  {
-    id: 3,
-    title: "IELTS",
-    subTitle: "British Council Myanmar | 2017",
-    list: ["Got overall band score 6.5."],
-  },
-];
 
 export default AboutSection;

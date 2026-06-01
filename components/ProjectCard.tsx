@@ -65,6 +65,8 @@ const ProjectCard: React.FC<Props> = ({ index, project }) => {
   const [starCountUrl, setStarCountUrl] = useState();
 
   useEffect(() => {
+    if (!project.githubApi) return;
+
     let ignore = false;
     async function fetchData() {
       const response = await fetch(project.githubApi);
@@ -80,7 +82,7 @@ const ProjectCard: React.FC<Props> = ({ index, project }) => {
 
     fetchData();
 
-    () => {
+    return () => {
       ignore = true;
     };
   }, [project.githubApi]);
@@ -101,30 +103,32 @@ const ProjectCard: React.FC<Props> = ({ index, project }) => {
               {project.title}
             </h3>
             <div className="flex items-center space-x-5 sm:space-x-3 my-2 sm:my-0 mr-[0.1rem]">
-              <a
-                href={starCountUrl}
-                target="_blank"
-                rel="noreferrer"
-                title={`Check stargazers of '${project.title}' on Github`}
-                className="flex items-center group"
-              >
-                {starCount}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="scale-75 group-hover:-rotate-12"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              {starCount && starCountUrl && (
+                <a
+                  href={starCountUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={`Check stargazers of '${project.title}' on Github`}
+                  className="flex items-center group"
                 >
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                </svg>
-              </a>
+                  {starCount}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="scale-75 group-hover:-rotate-12"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                  </svg>
+                </a>
+              )}
               <a
                 href={project.codeUrl}
                 title={`See '${project.title}' on Github`}

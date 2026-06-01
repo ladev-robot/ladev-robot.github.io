@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 import AppHead from "@/components/AppHead";
+import { blogPageTitle } from "@/constants/site";
 import SkipToMain from "@/components/SkipToMain";
 import SocialLinks from "@/components/SocialLinks";
 import BlogHeader from "@/components/blog/BlogHeader";
@@ -40,7 +41,7 @@ const Blog: NextPage<Props> = ({ tags, tagCounts }) => {
 
   return (
     <>
-      <AppHead title="Blog - Sat Naing" />
+      <AppHead title={blogPageTitle()} />
       <Loader>Tags</Loader>
       <div ref={sectionRef} className="bg-bglight dark:bg-bgdark min-h-screen">
         <div className="selection:bg-marrsgreen selection:text-bglight dark:selection:bg-carrigreen dark:selection:text-bgdark">

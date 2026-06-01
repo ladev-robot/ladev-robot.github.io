@@ -5,6 +5,7 @@ import gsap from "gsap";
 
 import useScrollListener from "hooks/useScrollListener";
 import { useSection } from "context/section";
+import { siteConfig } from "@/constants/site";
 
 const navLinks = [
   {
@@ -94,7 +95,7 @@ const Header: React.FC = () => {
             href="/"
             className="text-xl sm:text-2xl md:hover:text-marrsgreen dark:md:hover:text-carrigreen focus-visible:outline-marrsgreen dark:focus-visible:outline-carrigreen"
           >
-            SatNaing
+            {siteConfig.name}
             <span className="text-marrsgreen dark:text-carrigreen">.dev</span>
           </Link>
           <nav className="flex items-center">

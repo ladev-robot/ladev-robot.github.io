@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { LanguageType, useFilter } from "context/filter";
+import { siteConfig } from "@/constants/site";
 
 const BlogHeroSection: React.FC = () => {
   const { searchText, onSearch, postLanguage, onLanguageChange } = useFilter();
@@ -41,21 +42,21 @@ const BlogHeroSection: React.FC = () => {
       <div className="mt-10">
         <div className="overflow-hidden py-1">
           <h1 className="main-header text-4xl lg:text-5xl font-bold">
-            Sat Naing's{" "}
+            {siteConfig.name}&apos;s{" "}
             <span className="text-marrsgreen dark:text-carrigreen">Blog</span>
           </h1>
         </div>
         <div>
           <p className="intro-1 mt-4 mb-2">
-            Hello, everyone! Welcome to my personal blog.
+            Welcome to my personal blog.
           </p>
           <p className="intro-2">
-            In this blog, I will be writing about my projects (what I do/how I
-            did), my personal experiences, and some random stuffs.
+            I write about projects, learning notes, and things I find worth
+            sharing along the way.
           </p>
           <p className="intro-3">
             You can follow me on my social media and{" "}
-            <a href="https://github.com/satnaing" className="link">
+            <a href={siteConfig.social.github} className="link">
               Github account.
             </a>
             <svg
@@ -131,6 +132,7 @@ const BlogHeroSection: React.FC = () => {
           <option value="All">All</option>
           <option value="English">English</option>
           <option value="Myanmar">Myanmar</option>
+          <option value="Chinese">Chinese</option>
         </select>
       </div>
     </section>

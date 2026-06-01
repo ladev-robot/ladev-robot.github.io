@@ -14,30 +14,30 @@ import Footer from "@/components/Footer";
 
 import { getAllPosts } from "utils/api";
 import { MdxMeta } from "../pages/blog/posts/[slug]";
+import { pageTitle, siteConfig } from "@/constants/site";
 
 type Props = {
   blogPosts: MdxMeta[];
 };
 
 export const meta = {
-  description:
-    "Sat Naing is a full-stack developer based in Yangon, Myanmar. He is passionate about writing codes and developing web applications to solve real-life challenges.",
-  author: "Sat Naing",
+  description: siteConfig.description,
+  author: siteConfig.name,
   type: "website",
-  ogImage: `${process.env.NEXT_PUBLIC_URL}/satnaing-dev-og-new.png`,
-  siteName: "Sat Naing",
-  imageAlt: "Sat Naing portfolio website",
+  ogImage: `${process.env.NEXT_PUBLIC_URL}${siteConfig.ogImages.home}`,
+  siteName: siteConfig.name,
+  imageAlt: `${siteConfig.name} portfolio website`,
 };
 
 const Home: NextPage<Props> = ({ blogPosts }) => {
   return (
     <>
       <AppHead
-        title="Sat Naing - A Full-stack Developer"
+        title={pageTitle()}
         url={`${process.env.NEXT_PUBLIC_URL}`}
         meta={meta}
       />
-      <Loader>SatNaing.dev</Loader>
+      <Loader>{siteConfig.siteName}</Loader>
       <div className="bg-bglight dark:bg-bgdark overflow-hidden">
         <div className="selection:bg-marrsgreen selection:text-bglight dark:selection:bg-carrigreen dark:selection:text-bgdark">
           <SkipToMain />

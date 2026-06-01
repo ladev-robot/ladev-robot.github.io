@@ -3,6 +3,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import gsap from "gsap";
 
 import AppHead from "@/components/AppHead";
+import { blogPageTitle } from "@/constants/site";
 import SkipToMain from "@/components/SkipToMain";
 import SocialLinks from "@/components/SocialLinks";
 import BlogHeader from "@/components/blog/BlogHeader";
@@ -37,7 +38,7 @@ const Blog: NextPage<Props> = ({ posts, category }) => {
   }, []);
   return (
     <>
-      <AppHead title="Blog - Sat Naing" />
+      <AppHead title={blogPageTitle()} />
       {/* <Loader>
         <span className="capitalize">{unslugify(category)}</span>
       </Loader> */}

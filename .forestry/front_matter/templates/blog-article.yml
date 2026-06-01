@@ -95,11 +95,11 @@ fields:
   description: Tags for the post
 - name: author
   type: select
-  default: Sat Naing
+  default: Leo
   config:
     required: true
     options:
-    - Sat Naing
+    - Leo
     source:
       type: simple
       section: 

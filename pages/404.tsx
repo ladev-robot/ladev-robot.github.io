@@ -6,12 +6,13 @@ import LinkButton from "@/components/LinkButton";
 
 import { meta } from "pages";
 import Link from "next/link";
+import { pageTitle } from "@/constants/site";
 
 const Home: NextPage = () => {
   return (
     <>
       <AppHead
-        title="Sat Naing - A Full-stack Developer"
+        title={pageTitle()}
         url={`${process.env.NEXT_PUBLIC_URL}`}
         meta={meta}
       />
