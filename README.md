@@ -11,8 +11,8 @@ Next.js (SSG) + TypeScript personal site. Markdown posts in `contents/`, Tailwin
 ## Quick Start
 
 ```bash
-git clone git@github.com:<you>/<repo>.git
-cd <repo>
+git clone git@github.com:ladev-robot/Blog.git
+cd Blog
 cp .env.example .env.local   # Windows: copy .env.example .env.local
 npm ci
 npm run dev                  # http://localhost:3000
@@ -56,6 +56,12 @@ public/            Static assets
 constants/         Site config
 utils/             Content & markdown helpers
 ```
+
+## GitHub Pages
+
+Site URL: **https://ladev-robot.github.io/Blog/**
+
+Pushes to `main` run [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). In the GitHub repo, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
 
 ## Git Workflow
 

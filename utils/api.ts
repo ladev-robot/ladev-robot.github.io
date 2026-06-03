@@ -6,7 +6,9 @@ import slugify from "./slugify";
 const postsDirectory = join(process.cwd(), "contents");
 
 export function getPostSlugs() {
-  const files = fs.readdirSync(postsDirectory);
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"));
 
   const slugs = files.map((file) => {
     const fullPath = join(postsDirectory, file);
@@ -18,7 +20,9 @@ export function getPostSlugs() {
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
-  const files = fs.readdirSync(postsDirectory);
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"));
 
   let fileName = slug;
   for (let file of files) {
@@ -59,7 +63,9 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 }
 
 export function getCategorySlugs(category: string) {
-  const files = fs.readdirSync(postsDirectory);
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"));
 
   let slugs: string[] = [];
 
@@ -88,7 +94,9 @@ export function getAllPosts(fields: string[] = [], category?: string) {
 }
 
 export function getTagSlugs(tag: string) {
-  const files = fs.readdirSync(postsDirectory);
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"));
 
   let slugs: string[] = [];
 

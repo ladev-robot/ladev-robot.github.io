@@ -37,13 +37,17 @@ function demoteHeadings(body) {
     .replace(/^## /gm, "### ");
 }
 
+function yamlValue(value) {
+  return JSON.stringify(String(value));
+}
+
 function toYaml(fm) {
   const tags = fm.tags.map((t) => `  - ${t}`).join("\n");
   const lines = [
     "---",
-    `title: ${fm.title}`,
-    `description: ${fm.description}`,
-    `excerpt: ${fm.excerpt}`,
+    `title: ${yamlValue(fm.title)}`,
+    `description: ${yamlValue(fm.description)}`,
+    `excerpt: ${yamlValue(fm.excerpt)}`,
     `datetime: ${fm.datetime}`,
     `slug: ${fm.slug}`,
     `featured: ${fm.featured}`,
