@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import BlogHeader from "@/components/blog/BlogHeader";
+import BlogPostHeader from "@/components/blog/BlogPostHeader";
 import SkipToMain from "@/components/SkipToMain";
 import SocialLinks from "@/components/SocialLinks";
 import AppHead, { Meta } from "@/components/AppHead";
@@ -10,9 +10,6 @@ import markdownToHtml, { TocHeading } from "utils/markdownToHtml";
 import { getAllPosts, getPostBySlug } from "utils/api";
 import PostBody from "@/components/blog/PostBody";
 import TableOfContents from "@/components/blog/TableOfContents";
-import Tag from "@/components/blog/Tag";
-import DateTime from "@/components/DateTime";
-import HeadCategory from "@/components/blog/HeadCategory";
 import { siteConfig } from "@/constants/site";
 
 export interface MdxMeta extends Meta {
@@ -21,11 +18,8 @@ export interface MdxMeta extends Meta {
   excerpt: string;
   slug: string;
   category: string;
-  coverImage?: string;
   tags?: string[];
   content: string;
-  coverImageWidth?: string;
-  coverImageHeight?: string;
   featured: boolean;
   language: "English" | "Myanmar" | "Chinese";
   toc?: boolean;
@@ -40,35 +34,13 @@ const BlogLayout: React.FC<Props> = ({ post, headings }) => {
   const showToc = post.toc && headings.length > 0;
 
   const metaBlock = (
-    <>
-      <h1 className="text-2xl md:text-3xl font-semibold tracking-tight leading-snug">
-        {post.title}
-      </h1>
-      <div className="mt-2 mb-1 italic text-marrsdark dark:text-carrigreen">
-        <DateTime datetime={post.datetime} />
-      </div>
-      <HeadCategory category={post.category} />
-      {post.tags && (
-        <div className="my-2">
-          {post.tags.map((tag: string) => (
-            <Tag tag={tag} key={tag} />
-          ))}
-        </div>
-      )}
-      {post.coverImage && (
-        <div className="bg-cardlight dark:bg-carddark">
-          <Image
-            src={post.coverImage}
-            alt={post.coverImageAlt || "Picture"}
-            sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-            priority
-            width={Number(post.coverImageWidth) || 1200}
-            height={Number(post.coverImageHeight) || 700}
-          />
-        </div>
-      )}
-    </>
+    <BlogPostHeader
+      title={post.title}
+      excerpt={post.excerpt}
+      datetime={post.datetime}
+      category={post.category}
+      tags={post.tags}
+    />
   );
 
   return (
@@ -114,14 +86,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     "title",
     "datetime",
     "description",
+    "excerpt",
     "slug",
     "author",
     "content",
     "ogImage",
     "ogImageAlt",
-    "coverImage",
-    "coverImageWidth",
-    "coverImageHeight",
     "category",
     "tags",
     "type",

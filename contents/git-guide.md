@@ -1,5 +1,5 @@
 ---
-title: Git 从入门到实战
+title: Git-Guide
 description: A practical Git guide covering repositories, branches, remotes, and a command cheat sheet.
 excerpt: From local commits to pushing remote, master the core Git workflow in this article.
 datetime: 2026-05-30T10:00:00.000Z
@@ -12,12 +12,6 @@ tags:
 author: Ao
 language: Chinese
 toc: true
-coverImage: /blog/git.webp
-coverImageAlt: Git 官方图标（Git Logo by Jason Long, CC BY 3.0）
-coverImageWidth: "1200"
-coverImageHeight: "700"
-ogImage: /blog/git.webp
-ogImageAlt: Git 从入门到实战
 ---
 命令速查与常见场景见文末 [附录：命令速查与实战场景](#7-附录命令速查与实战场景)。
 

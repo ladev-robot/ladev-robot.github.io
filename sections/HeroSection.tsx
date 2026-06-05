@@ -68,11 +68,11 @@ const HeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative mt-16 sm:mt-8 pt-8 lg:pt-0 px-4 sm:px-8 md:px-20 max-w-5xl sm:pb-24 min-h-[769px] mx-auto sm:flex sm:flex-col sm:justify-center sm:items-center lg:flex-row-reverse"
+      className="relative mt-14 pt-4 pb-28 sm:mt-8 sm:pt-8 sm:pb-24 lg:pt-0 lg:min-h-[769px] px-4 sm:px-8 md:px-20 max-w-5xl mx-auto sm:flex sm:flex-col sm:justify-center sm:items-center lg:flex-row-reverse"
     >
       <span
         aria-hidden="true"
-        className="bg-text absolute -top-36 rotate-12 text-gray-100 dark:text-[#1f2e3a] text-9xl scale-150 tracking-wide font-bold select-none pointer-events-none text-center z-0"
+        className="bg-text absolute -top-20 sm:-top-28 lg:-top-36 rotate-12 text-gray-100 dark:text-[#1f2e3a] text-6xl sm:text-8xl lg:text-9xl scale-100 sm:scale-125 lg:scale-150 tracking-wide font-bold select-none pointer-events-none text-center z-0"
       >
         Plan. Control. Fly.
       </span>

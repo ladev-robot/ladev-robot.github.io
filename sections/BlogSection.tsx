@@ -7,7 +7,7 @@ import { useSection } from "context/section";
 import useOnScreen from "hooks/useOnScreen";
 import useScrollActive from "hooks/useScrollActive";
 import { MdxMeta } from "pages/blog/posts/[slug]";
-import BlogImageCard from "@/components/BlogImageCard";
+import BlogCard from "@/components/BlogCard";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -85,12 +85,11 @@ const BlogSection: React.FC<Props> = ({ posts }) => {
             }}
           >
             {posts.map((post, index) => (
-              <SwiperSlide key={post.slug} tag="li">
-                <BlogImageCard
+              <SwiperSlide key={post.slug} tag="li" className="!h-auto">
+                <BlogCard
                   post={post}
-                  className={`${index > 3 ? "hidden lg:block" : ""}`}
-                  key={post.slug}
-                  fullWH
+                  variant="card"
+                  className={`${index > 3 ? "hidden lg:block" : ""} w-full`}
                 />
               </SwiperSlide>
             ))}

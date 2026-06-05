@@ -59,13 +59,12 @@ const Home: NextPage<Props> = ({ blogPosts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogPosts = getAllPosts([
-    "coverImage",
-    "coverImageAlt",
     "slug",
     "title",
     "excerpt",
     "datetime",
     "featured",
+    "category",
   ]);
 
   return {
