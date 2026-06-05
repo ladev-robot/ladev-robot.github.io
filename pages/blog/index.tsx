@@ -86,6 +86,7 @@ export const getStaticProps: GetStaticProps = async () => {
     "datetime",
     "featured",
     "language",
+    "category",
   ]);
 
   return {

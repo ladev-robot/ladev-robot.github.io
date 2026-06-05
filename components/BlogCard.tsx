@@ -1,73 +1,70 @@
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+import slugify from "utils/slugify";
 import DateTime from "@/components/DateTime";
 
-type Props = {
-  post: {
-    slug: string;
-    title: string;
-    excerpt: string;
-    datetime: string;
-  };
+type Post = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  datetime: string;
+  category?: string;
+  featured?: boolean;
 };
 
-const BlogCard: React.FC<Props> = ({ post }) => {
-  const { title, slug, excerpt, datetime } = post;
+type Props = {
+  post: Post;
+  variant?: "list" | "card";
+  className?: string;
+};
 
-  const sectionRef = useRef<HTMLLIElement>(null);
+const BlogCard: React.FC<Props> = ({
+  post,
+  variant = "list",
+  className = "",
+}) => {
+  const { title, slug, excerpt, datetime, category, featured } = post;
+  const categorySlug = category ? slugify(category) : "";
 
-  // Animations
-  // useEffect(() => {
-  //   const q = gsap.utils.selector(sectionRef);
+  if (variant === "card") {
+    return (
+      <article
+        className={`group flex h-full min-h-[220px] flex-col rounded-xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-marrsgreen/40 hover:shadow-md dark:border-slate-700/80 dark:bg-carddark dark:hover:border-carrigreen/40 ${className}`}
+      >
+        <div className="mb-3 flex items-center justify-between gap-2">
+          {category ? (
+            <Link
+              href={`/blog/categories/${categorySlug}`}
+              className="rounded-full bg-marrsgreen/10 px-2.5 py-0.5 text-xs font-medium text-marrsdark dark:bg-carrigreen/15 dark:text-carrilight"
+            >
+              {category}
+            </Link>
+          ) : (
+            <span />
+          )}
+          {featured && (
+            <span className="text-xs font-medium uppercase tracking-wide text-marrsgreen dark:text-carrigreen">
+              Featured
+            </span>
+          )}
+        </div>
 
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   const tl = gsap.timeline({
-  //     // defaults: { stagger: 0.2, duration: 0.2 },
-  //     scrollTrigger: {
-  //       trigger: sectionRef.current,
-  //       start: `70% bottom`,
-  //     },
-  //   });
-
-  //   tl.fromTo(
-  //     q(".blog-title"),
-  //     { opacity: 0, y: 50 },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       ease: "Power3.easeInOut",
-  //       duration: 0.5,
-  //       stagger: 0.2,
-  //     }
-  //   )
-  //     .fromTo(q(".blog-datetime"), { y: 100 }, { y: 0, stagger: 0.2 }, "<25%")
-  //     .fromTo(
-  //       q(".blog-excerpt"),
-  //       { opacity: 0 },
-  //       { opacity: 1, stagger: 0.2, duration: 1.5 },
-  //       "<10%"
-  //     );
-  // }, []);
-
-  return (
-    <li ref={sectionRef} className="my-4 md:mt-0 md:mb-8">
-      <div className="overflow-hidden">
         <Link
           href={`/blog/posts/${slug}`}
-          className="blog-title link inline-block outline-none dark:outline-none focus-within:underline"
+          className="link outline-none focus-within:underline"
         >
-          <h3 className="text-lg font-medium">{title}</h3>
+          <h3 className="line-clamp-2 text-lg font-semibold leading-snug text-slate-900 dark:text-slate-50">
+            {title}
+          </h3>
         </Link>
-      </div>
-      <div className="overflow-hidden">
-        <div className="blog-datetime italic text-sm mb-1 text-carddark dark:text-gray-300 flex items-center">
+
+        <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-gray-300">
+          {excerpt}
+        </p>
+
+        <div className="mt-4 flex items-center text-xs italic text-carddark dark:text-gray-400">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 mr-2"
+            className="mr-1.5 h-3.5 w-3.5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -82,8 +79,45 @@ const BlogCard: React.FC<Props> = ({ post }) => {
           </svg>
           <DateTime datetime={datetime} />
         </div>
+      </article>
+    );
+  }
+
+  return (
+    <li
+      className={`group border-b border-slate-200/80 py-6 last:border-b-0 dark:border-slate-700/60 ${className}`}
+    >
+      <div className="flex flex-wrap items-center gap-2 text-sm">
+        {category && (
+          <Link
+            href={`/blog/categories/${categorySlug}`}
+            className="rounded-full bg-marrsgreen/10 px-2.5 py-0.5 text-xs font-medium text-marrsdark dark:bg-carrigreen/15 dark:text-carrilight"
+          >
+            {category}
+          </Link>
+        )}
+        {featured && (
+          <span className="text-xs font-medium uppercase tracking-wide text-marrsgreen dark:text-carrigreen">
+            Featured
+          </span>
+        )}
+        <span className="ml-auto italic text-carddark dark:text-gray-400">
+          <DateTime datetime={datetime} />
+        </span>
       </div>
-      <p className="blog-excerpt dark:text-gray-300">{excerpt}</p>
+
+      <Link
+        href={`/blog/posts/${slug}`}
+        className="link mt-2 inline-block outline-none focus-within:underline"
+      >
+        <h3 className="text-xl font-semibold leading-snug text-slate-900 transition group-hover:text-marrsgreen dark:text-slate-50 dark:group-hover:text-carrigreen">
+          {title}
+        </h3>
+      </Link>
+
+      <p className="mt-2 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-gray-300">
+        {excerpt}
+      </p>
     </li>
   );
 };

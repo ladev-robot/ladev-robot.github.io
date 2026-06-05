@@ -5,8 +5,6 @@ export interface Meta {
   description?: string;
   author?: string;
   siteName?: string;
-  coverImage?: string;
-  coverImageAlt?: string;
   ogImage?: string;
   ogImageAlt?: string;
   type?: string;
@@ -27,8 +25,6 @@ const AppHead: React.FC<Props> = ({
   let description = siteConfig.blogDescription;
   let siteName = `${siteConfig.name}'s Blog`;
   let type = "article";
-  let coverImage: string | undefined;
-  let coverImageAlt: string | undefined;
   let ogImage: string | undefined;
   let ogImageAlt: string | undefined;
 
@@ -37,8 +33,6 @@ const AppHead: React.FC<Props> = ({
     description = meta.description ? meta.description : description;
     siteName = meta.siteName ? meta.siteName : siteName;
     type = meta.type ? meta.type : type;
-    coverImage = meta.coverImage && meta.coverImage;
-    coverImageAlt = meta.coverImageAlt && meta.coverImageAlt;
     ogImage = meta.ogImage && meta.ogImage;
     ogImageAlt = meta.ogImageAlt && meta.ogImageAlt;
   }
@@ -47,15 +41,13 @@ const AppHead: React.FC<Props> = ({
   let appOgImageAlt = `${siteConfig.name}'s Blog`;
 
   if (ogImage) {
-    appOgImage = ogImage;
-  } else if (!ogImage && coverImage) {
-    appOgImage = coverImage;
+    appOgImage = ogImage.startsWith("http")
+      ? ogImage
+      : `${process.env.NEXT_PUBLIC_URL}${ogImage}`;
   }
 
   if (ogImageAlt) {
     appOgImageAlt = ogImageAlt;
-  } else if (!ogImageAlt && coverImageAlt) {
-    appOgImageAlt = coverImageAlt;
   }
 
   return (
