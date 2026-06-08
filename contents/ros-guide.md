@@ -14,8 +14,6 @@ language: Chinese
 toc: true
 ---
 
-本文把以下 8 篇 ROS 教程按“技术文档”的阅读顺序合并成一篇：环境部署、工作空间、Topic/Service/Param、launch 管理、turtlesim Demo、C++ API 参考。
-
 各章命令速查已统一到文末 [附录：命令速查](#appendixCommands)；遇到问题先看 [附录：常见问题](#appendixFaq)。
 
 ---
